@@ -691,6 +691,21 @@
         </div>
     </section>
 
+    <!-- Testimonies Section -->
+    <section id="testimonios" class="py-24 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl lg:text-6xl font-bold mb-8">
+                    <span class="gradient-text">Testimonios</span> de Clientes
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Escucha lo que nuestros clientes opinan de nuestro trabajo.
+                </p>
+            </div>
+            <div id="testimonial-carousel" class="max-w-3xl mx-auto text-center transition-opacity duration-500">
+            </div>
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="contacto" class="py-24 bg-white relative overflow-hidden tech-grid">
         <div class="wave-pattern absolute inset-0 opacity-30"></div>
@@ -773,15 +788,8 @@
                         <div class="mt-8">
                             <h4 class="text-xl font-bold text-gray-900 mb-4">Síguenos</h4>
                             <div class="flex space-x-4">
-                                <a href="#" class="text-wave-blue hover:text-wave-purple">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005 1.016-3.125 1.249-.897-.957-2.178-1.555-3.594-1.555-2.719 0-4.924 2.205-4.924 4.924 0 .386.045.762.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.708.869 3.216 2.188 4.099-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.828-.413.111-.849.228-1.295.324.369 1.152 1.435 1.994 2.696 2.016-1.009.794-2.284 1.269-3.668 1.269-.239 0-.475-.014-.707-.041 1.315.912 2.876 1.444 4.558 1.444 5.472 0 8.469-4.532 8.469-8.468 0-.129-.003-.257-.009-.385.581-.416 1.084-.935 1.482-1.526z">
-                                        </path>
-                                    </svg>
-                                </a>
-                                <a href="https://www.instagram.com/wavdevelop/"
-                                    class="text-wave-blue hover:text-wave-purple">
+                                <a href="https://www.instagram.com/wavdevelop/" target="_blank"
+                                    rel="noopener noreferrer" class="text-wave-blue hover:text-wave-purple">
                                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                         <path
                                             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.227-1.671 4.771-4.919 4.919-1.265.058-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.248-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.849 0-3.204.012-3.584.069-4.849.148-3.252 1.691-4.771 4.919-4.919 1.265-.058 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.667.072 4.947.2 4.362 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.667-.014 4.947-.072 4.362-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.2-4.362-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z">
@@ -925,6 +933,51 @@
         }
     });
 </script>
+
+    <!--Testimonios -->
+    <script>
+        const testimonios = [
+            {
+                nombre: "Ana López",
+                cargo: "CEO en Innovatech",
+                texto: "¡Una experiencia increíble! Nos ayudaron a transformar nuestro sitio web completamente.",
+            },
+            {
+                nombre: "Carlos Méndez",
+                cargo: "CTO en SoftSolutions",
+                texto: "Profesionales, creativos y comprometidos. ¡Altamente recomendados!",
+            },
+            {
+                nombre: "Laura Ramírez",
+                cargo: "Gerente de Marketing en RedNova",
+                texto: "Desde el primer contacto supimos que estábamos en buenas manos. Resultado impecable.",
+            },
+            {
+                nombre: "Javier Morales",
+                cargo: "Fundador de EcoTienda",
+                texto: "Nos ofrecieron soluciones innovadoras que superaron nuestras expectativas.",
+            },
+        ];
+
+        const contenedor = document.getElementById("testimonial-carousel");
+
+        let indice = 0;
+        function mostrarTestimonio()
+        {
+            const { nombre, cargo, texto } = testimonios[indice];
+            contenedor.innerHTML = `
+            <div class="bg-white p-8 rounded-2xl shadow-xl transition-all duration-500 hover:scale-105">
+            <p class="text-xl text-gray-700 italic mb-6">"${texto}"</p>
+            <h4 class="text-xl font-semibold text-gray-900">${nombre}</h4>
+            <p class="text-gray-500">${cargo}</p>
+            </div>`;
+            indice = (indice + 1) % testimonios.length;
+        }
+
+        mostrarTestimonio(); // Mostrar al cargar
+        setInterval(mostrarTestimonio, 5000); // Cambiar cada 5 segundos
+    </script>
+
 </body>
 
 </html>
