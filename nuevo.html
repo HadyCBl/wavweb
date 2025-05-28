@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/jpeg" href="ico.jpg">
     <title>WavDevelop </title>
     <meta name="description" content="WavDevelop - Soluciones web profesionales con tecnologías de vanguardia. Desarrollo corporativo, seguridad avanzada y diseño innovador.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -161,42 +162,38 @@
 </head>
 <body class="bg-white text-gray-900 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="relative">
-                        <div class="w-12 h-12 bg-gradient-to-r from-wave-blue to-wave-purple rounded-xl flex items-center justify-center animate-pulse-glow">
-                            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
-                                <path d="M8 21l4-7 4 7"/>
-                                <path d="M9 9h6"/>
-                            </svg>
-                        </div>
+ <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <div class="w-12 h-12 bg-gradient-to-r from-wave-blue to-wave-purple rounded-xl flex items-center justify-center animate-pulse-glow">
+                        <img src="ico.jpg" alt="WavDevelop Logo" class="w-7 h-7 object-contain">
                     </div>
-                    <span class="text-3xl font-bold gradient-text">WavDevelop</span>
                 </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Inicio</a>
-                    <a href="#servicios" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Servicios</a>
-                    <a href="#tecnologias" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Tecnologías</a>
-                    <a href="#proyectos" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Proyectos</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Contacto</a>
-                </div>
-                
-                <button class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300 hidden md:block">
-                    Cotizar Proyecto
-                </button>
-                
-                <button class="md:hidden text-wave-blue">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <span class="text-3xl font-bold gradient-text">WavDevelop</span>
             </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Inicio</a>
+                <a href="#servicios" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Servicios</a>
+                <a href="#tecnologias" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Tecnologías</a>
+                <a href="#proyectos" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Proyectos</a>
+                <a href="#contacto" class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Contacto</a>
+            </div>
+            
+            <button class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300 hidden md:block">
+                Cotizar Proyecto
+            </button>
+            
+            <button class="md:hidden text-wave-blue">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="inicio" class="min-h-screen flex items-center relative overflow-hidden tech-grid">
