@@ -10,6 +10,50 @@
         content="WavDevelop - Soluciones web profesionales con tecnologías de vanguardia. Desarrollo corporativo, seguridad avanzada y diseño innovador.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+                fetch("api_noticias.php")
+        .then(response => response.json())
+        .then(data => {
+            const contenedor = document.getElementById("news-container");
+            contenedor.innerHTML = "";
+
+            if (data && data.data.length > 0) {
+            const noticiasTecnologia = data.data.filter(noticia =>
+                noticia.categories && noticia.categories.includes("tech")
+            );
+
+            if (noticiasTecnologia.length === 0) {
+                contenedor.innerText = "No se encontraron noticias de tecnología disponibles.";
+                return;
+            }
+
+            noticiasTecnologia.slice(0, 5).forEach(noticia => {
+                const elemento = document.createElement("div");
+                elemento.classList.add("glass-card", "p-6", "rounded-2xl", "hover-lift");
+                elemento.innerHTML = `
+                <img src="${noticia.image_url}" alt="${noticia.title}" class="mb-4 rounded-md w-full h-48 object-cover">
+                <h2 class="text-lg font-bold mb-2">${noticia.title}</h2>
+                <p class="text-gray-700 mb-2">${noticia.snippet}</p>
+                <a href="${noticia.url}" class="text-blue-600 font-semibold hover:underline" target="_blank">Leer más</a>
+                `;
+                contenedor.appendChild(elemento);
+            });
+            } else {
+            contenedor.innerText = "No se encontraron noticias.";
+            }
+        });
+
+      </script>
+      
+      
+      
+    
+      
+    
+
+        // Call fetchNews when the page loads
+        document.addEventListener('DOMContentLoaded', fetchNews);
+    </script>
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -720,6 +764,24 @@
             </div>
         </div>
     </section>
+
+    <!-- News Section -->
+    <section id="noticias" class="py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl lg:text-6xl font-bold mb-8">
+                    Últimas <span class="gradient-text">Noticias</span> de Tecnología
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Mantente al día con las últimas novedades del mundo tecnológico.
+                </p>
+            </div>
+            <div id="news-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contacto" class="py-24 bg-white relative overflow-hidden tech-grid">
         <div class="wave-pattern absolute inset-0 opacity-30"></div>
