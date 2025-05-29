@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Array of recipient emails for easy future additions
         $recipients = [
             'harvey@wavdevelop.com',
-            'ventas@wavdevelop.com'
+            'm.estrada@wavdevelop.com'
         ];
 
         // Add recipients by mapping through the array
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="field-value">' . htmlspecialchars($name) . '</div>
                         </div>
                         <div class="field">
-                            <div class="field-label">Correo Electrónico:</div>
+                            <div class="field-label">Correo Electronico:</div>
                             <div class="field-value">' . htmlspecialchars($email) . '</div>
                         </div>
                         <div class="field">
