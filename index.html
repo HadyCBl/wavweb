@@ -10,45 +10,67 @@
         content="WavDevelop - Soluciones web profesionales con tecnologías de vanguardia. Desarrollo corporativo, seguridad avanzada y diseño innovador.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-                fetch("api_noticias.php")
-        .then(response => response.json())
-        .then(data => {
-            const contenedor = document.getElementById("news-container");
-            contenedor.innerHTML = "";
+  function fetchNews() {
+    fetch('/api_noticias.php')
+      .then(response => response.json())
+      .then(news => {
+        const newsSection = document.getElementById("noticias");
+        const container = document.createElement("div");
+        container.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-3", "gap-8");
 
-            if (data && data.data.length > 0) {
-            const noticiasTecnologia = data.data.filter(noticia =>
-                noticia.categories && noticia.categories.includes("tech")
+        if (!Array.isArray(news)) {
+          newsSection.innerHTML = `
+            <p class="text-red-600">
+              Error: ${news.error || 'No se pudieron cargar las noticias.'}
+            </p>`;
+          return;
+        }
+
+        if (news.length === 0) {
+          newsSection.innerHTML = "<p>No se encontraron noticias.</p>";
+        } else {
+          news.forEach(n => {
+            const item = document.createElement("div");
+            item.classList.add(
+              "bg-white", "rounded-xl", "shadow-lg", "overflow-hidden",
+              "hover:shadow-xl", "transition-all"
             );
 
-            if (noticiasTecnologia.length === 0) {
-                contenedor.innerText = "No se encontraron noticias de tecnología disponibles.";
-                return;
-            }
+            item.innerHTML = `
+              <img src="${n.image_url || 'https://via.placeholder.com/600x300?text=Sin+imagen'}"
+                   alt="${n.title}"
+                   class="w-full h-48 object-cover" />
 
-            noticiasTecnologia.slice(0, 5).forEach(noticia => {
-                const elemento = document.createElement("div");
-                elemento.classList.add("glass-card", "p-6", "rounded-2xl", "hover-lift");
-                elemento.innerHTML = `
-                <img src="${noticia.image_url}" alt="${noticia.title}" class="mb-4 rounded-md w-full h-48 object-cover">
-                <h2 class="text-lg font-bold mb-2">${noticia.title}</h2>
-                <p class="text-gray-700 mb-2">${noticia.snippet}</p>
-                <a href="${noticia.url}" class="text-blue-600 font-semibold hover:underline" target="_blank">Leer más</a>
-                `;
-                contenedor.appendChild(elemento);
-            });
-            } else {
-            contenedor.innerText = "No se encontraron noticias.";
-            }
-        });
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">${n.title}</h3>
+                <p class="text-sm text-gray-500 mb-2">
+                  ${n.source} | ${new Date(n.published_at).toLocaleDateString()}
+                </p>
+                <p class="text-gray-700 mb-4">
+                  ${n.description || n.snippet}
+                </p>
+                <a href="${n.url}" target="_blank"
+                   class="text-wave-blue font-semibold hover:text-wave-purple transition">
+                  Leer más →
+                </a>
+              </div>
+            `;
 
-      </script>
-      
-      
-      
-    
-      
-    
+            container.appendChild(item);
+          });
+        }
+
+        newsSection.appendChild(container);
+      })
+      .catch(error => {
+        console.error("Error al obtener noticias:", error);
+        document.getElementById("noticias").innerHTML = `
+          <p class='text-red-600'>No se pudo cargar las noticias.</p>`;
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", fetchNews);
+</script>
 
         // Call fetchNews when the page loads
         document.addEventListener('DOMContentLoaded', fetchNews);
