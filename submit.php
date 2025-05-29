@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail = new PHPMailer(true);
     try {
         // SMTP server configuration
-        $mail->SMTPDebug = 2; // Enable debugging for error diagnosis
+        $mail->SMTPDebug = 2; 
         $mail->isSMTP();
         $mail->Host = 'mail.wavdevelop.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'notifications@wavdevelop.com';
-        $mail->Password = 'B.OCt[BI6@bR'; // Ensure this is the correct cPanel password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL for port 465
+        $mail->Password = 'B.OCt[BI6@bR'; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
         $mail->Port = 465;
 
         // Configure sender
@@ -42,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $recipients = [
             'harvey@wavdevelop.com',
             'ventas@wavdevelop.com'
-            // Add more emails here in the future, e.g., 'newemail@wavdevelop.com'
         ];
 
         // Add recipients by mapping through the array
@@ -50,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->addAddress($recipient);
         }
 
-        // Email content
-        $mail->isHTML(true); // Changed to HTML for better formatting
+        // Email 
+        $mail->isHTML(true); //HTML for better formatting
         $mail->Subject = 'Nuevo Mensaje de Contacto - WavDevelop';
         $mail->Body = '
             <html>
@@ -96,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </body>
             </html>';
 
-        // Plain text alternative for non-HTML email clients
         $mail->AltBody = "WavDevelop - Nuevo Mensaje de Contacto\n\n" .
                          "Recibido el: " . date('Y-m-d H:i:s') . "\n\n" .
                          "Nombre: $name\n" .
