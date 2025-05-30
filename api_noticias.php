@@ -1,10 +1,9 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php'; // Asegúrate de que apunta al vendor correcto
+require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-// Verifica que el token existe
 if (!isset($_ENV['API_NEWS_TOKEN'])) {
     http_response_code(500);
     echo json_encode(["error" => "Token no definido"]);
