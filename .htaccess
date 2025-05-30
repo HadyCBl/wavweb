@@ -1,4 +1,5 @@
 # CONFIGURACIÓN GENERAL DEL SERVIDOR
+RewriteEngine on
 Options +FollowSymLinks
 
 # ERROR - Página 404 personalizada
