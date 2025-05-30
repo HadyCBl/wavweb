@@ -1,0 +1,42 @@
+# CONFIGURACIÓN GENERAL DEL SERVIDOR
+Options +FollowSymLinks
+
+# ERROR - Página 404 personalizada
+ErrorDocument 404 /404.html
+
+# Proteger directorios
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Bloquear acceso a directorios sensibles
+    RewriteRule ^(config|includes|logs|vendor|node_modules|\.git) - [F,L]
+    
+    # Bloquear acceso a archivos de backup
+    RewriteRule \.(bak|backup|old|tmp|temp)$ - [F,L]
+    
+    # REDIRECCIÓN 404 - Capturar todas las páginas no encontradas
+    # Si el archivo no existe, redirigir a 404.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/404\.html$
+    RewriteRule ^(.*)$ /404.html [L,R=404]
+    
+</IfModule>
+
+# Prevenir acceso
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Proteger archivo .env
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Proteger archivos .env
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
