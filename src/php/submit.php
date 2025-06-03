@@ -53,7 +53,7 @@ try {
 
     $mail->setFrom('notifications@wavdevelop.com', 'Formulario de Contacto');
     $mail->addAddress('harvey@wavdevelop.com'); 
-    $mail->addAddress('m.estrada@wavdevelop.com'); // Add more as needed
+    $mail->addAddress('m.estrada@wavdevelop.com'); // Add more 
 
     $mail->isHTML(true);
     $mail->Subject = 'Nuevo Mensaje de Contacto - WavDevelop';
