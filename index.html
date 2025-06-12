@@ -11,6 +11,8 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="src/css/styles.css">
         <script src="tailwind.config.js"></script>
+        
+        <script src="src/js/i18n.js"></script>
     </head>
 
     <body class="bg-white text-gray-900 overflow-x-hidden">
@@ -32,26 +34,39 @@
                             class="text-3xl font-bold gradient-text">WavDevelop</span>
                     </div>
 
-                    <!-- Menú de navegación para escritorio -->
                     <div class="hidden md:flex space-x-8 md:flex nav-links">
                         <a href="#inicio"
-                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Inicio</a>
+                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium"
+                            data-i18n="nav.home"></a>
                         <a href="#servicios"
-                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Servicios</a>
+                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium"
+                            data-i18n="nav.services"></a>
                         <a href="#tecnologias"
-                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Tecnologías</a>
+                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium"
+                            data-i18n="nav.technologies"></a>
                         <a href="#proyectos"
-                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Proyectos</a>
+                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium"
+                            data-i18n="nav.projects"></a>
                         <a href="#contacto"
-                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium">Contacto</a>
+                            class="text-gray-700 hover:text-wave-blue transition-colors font-medium"
+                            data-i18n="nav.contact"></a>
+                    </div>
+
+                    <div class="relative inline-block text-left mr-4 hidden md:block">
+                        <select id="language-selector" 
+                                class="bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-wave-blue focus:border-transparent">
+                            <option value="es">🇪🇸 ES</option>
+                            <option value="en">🇺🇸 EN</option>
+                            <option value="fr">🇫🇷 FR</option>
+                            <option value="pt">🇧🇷 PT</option>
+                        </select>
                     </div>
 
                     <button
-                        class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300 hidden md:block">
-                        Cotizar Proyecto
+                        class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300 hidden md:block"
+                        data-i18n="nav.quote">
                     </button>
 
-                    <!-- Botón menú hamburguesa para móvil -->
                     <button id="mobile-menu-button"
                         class="md:hidden text-wave-blue focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor"
@@ -62,33 +77,35 @@
                         </svg>
                     </button>
                 </div>
-                <!-- Menú desplegable móvil -->
                 <div id="mobile-menu"
                     class="md:hidden hidden flex-col space-y-4 mt-4 bg-white rounded-xl shadow-lg p-6">
                     <a href="#inicio"
-                        class="block text-gray-700 hover:text-wave-blue font-medium">Inicio</a>
+                        class="block text-gray-700 hover:text-wave-blue font-medium"
+                        data-i18n="nav.home"></a>
                     <a href="#servicios"
-                        class="block text-gray-700 hover:text-wave-blue font-medium">Servicios</a>
+                        class="block text-gray-700 hover:text-wave-blue font-medium"
+                        data-i18n="nav.services"></a>
                     <a href="#tecnologias"
-                        class="block text-gray-700 hover:text-wave-blue font-medium">Tecnologías</a>
+                        class="block text-gray-700 hover:text-wave-blue font-medium"
+                        data-i18n="nav.technologies"></a>
                     <a href="#proyectos"
-                        class="block text-gray-700 hover:text-wave-blue font-medium">Proyectos</a>
+                        class="block text-gray-700 hover:text-wave-blue font-medium"
+                        data-i18n="nav.projects"></a>
                     <a href="#contacto"
-                        class="block text-gray-700 hover:text-wave-blue font-medium">Contacto</a>
+                        class="block text-gray-700 hover:text-wave-blue font-medium"
+                        data-i18n="nav.contact"></a>
                     <button
-                        class="w-full bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300">
-                        Cotizar Proyecto
+                        class="w-full bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300"
+                        data-i18n="nav.quote">
                     </button>
                 </div>
             </div>
         </nav>
 
-        <!-- Hero Section -->
         <section id="inicio"
             class="min-h-screen flex items-center relative overflow-hidden tech-grid">
             <div class="wave-pattern absolute inset-0 opacity-30"></div>
 
-            <!-- Floating Tech Icons -->
             <div class="absolute inset-0 pointer-events-none">
                 <div
                     class="absolute top-20 left-10 w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center animate-float-slow tech-logo">
@@ -136,27 +153,21 @@
 
                         <h1
                             class="text-6xl lg:text-8xl font-bold mb-8 leading-tight">
-                            Desarrollo Web
-                            <span class="gradient-text block">Innovador</span>
+                            <span data-i18n="hero.title"></span>
+                            <span class="gradient-text block" data-i18n="hero.subtitle"></span>
                         </h1>
 
-                        <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                            En <strong>WavDevelop</strong> creamos experiencias
-                            digitales extraordinarias
-                            con las tecnologías más avanzadas. Transformamos
-                            ideas en soluciones web
-                            profesionales que impulsan tu negocio hacia el
-                            futuro.
+                        <p class="text-xl text-gray-600 mb-10 leading-relaxed" data-i18n="hero.description">
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-6">
                             <button
-                                class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-8 py-4 rounded-xl font-semibold hover-lift shadow-lg">
-                                Iniciar Proyecto
+                                class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-8 py-4 rounded-xl font-semibold hover-lift shadow-lg"
+                                data-i18n="hero.startProject">
                             </button>
                             <button
-                                class="border-2 border-wave-blue text-wave-blue px-8 py-4 rounded-xl font-semibold hover:bg-wave-blue hover:text-white transition-all duration-300">
-                                Ver Portfolio
+                                class="border-2 border-wave-blue text-wave-blue px-8 py-4 rounded-xl font-semibold hover:bg-wave-blue hover:text-white transition-all duration-300"
+                                data-i18n="hero.viewPortfolio">
                             </button>
                         </div>
 
@@ -164,17 +175,17 @@
                             <div class="text-center">
                                 <div
                                     class="text-3xl font-bold text-wave-blue">150+</div>
-                                <div class="text-gray-600">Proyectos</div>
+                                <div class="text-gray-600" data-i18n="hero.stats.projects"></div>
                             </div>
                             <div class="text-center">
                                 <div
                                     class="text-3xl font-bold text-wave-purple">98%</div>
-                                <div class="text-gray-600">Satisfacción</div>
+                                <div class="text-gray-600" data-i18n="hero.stats.satisfaction"></div>
                             </div>
                             <div class="text-center">
                                 <div
                                     class="text-3xl font-bold text-wave-green">24/7</div>
-                                <div class="text-gray-600">Soporte</div>
+                                <div class="text-gray-600" data-i18n="hero.stats.support"></div>
                             </div>
                         </div>
                     </div>
@@ -197,16 +208,13 @@
                                 </svg>
                             </div>
                             <h3
-                                class="text-3xl font-bold gradient-text mb-4">Tecnología
-                                Avanzada</h3>
-                            <p class="text-gray-600 text-lg">
-                                Utilizamos las últimas tecnologías y frameworks
-                                para crear
-                                soluciones web robustas y escalables.
+                                class="text-3xl font-bold gradient-text mb-4"
+                                data-i18n="techCard.title"></h3>
+                            <p class="text-gray-600 text-lg"
+                               data-i18n="techCard.description">
                             </p>
                         </div>
 
-                        <!-- Orbiting Tech Icons -->
                         <div
                             class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8">
                             <div
@@ -243,18 +251,15 @@
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="servicios" class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-20 scroll-reveal">
                     <h2 class="text-5xl lg:text-6xl font-bold mb-8">
-                        Nuestros <span class="gradient-text">Servicios</span>
+                        <span data-i18n="services.title"></span> <span class="gradient-text" data-i18n="services.titleHighlight"></span>
                     </h2>
                     <p
-                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        Ofrecemos soluciones web completas y personalizadas que
-                        se adaptan
-                        perfectamente a las necesidades de tu negocio
+                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                        data-i18n="services.subtitle">
                     </p>
                 </div>
 
@@ -272,23 +277,18 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold mb-6 text-gray-900">Desarrollo
-                            Web Corporativo</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Sitios web profesionales que reflejan la identidad
-                            de tu empresa
-                            con diseño moderno y funcionalidad excepcional.
+                            class="text-2xl font-bold mb-6 text-gray-900"
+                            data-i18n="services.webDev.title"></h3>
+                        <p class="text-gray-600 leading-relaxed mb-6"
+                           data-i18n="services.webDev.description">
                         </p>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span>Diseño
-                                responsive</li>
+                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span><span data-i18n="services.webDev.feature1"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span>Optimización
-                                SEO</li>
+                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span><span data-i18n="services.webDev.feature2"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span>CMS
-                                personalizado</li>
+                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span><span data-i18n="services.webDev.feature3"></span></li>
                         </ul>
                     </div>
 
@@ -306,24 +306,18 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold mb-6 text-gray-900">E-commerce
-                            Avanzado</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Tiendas online completas con sistemas de pago
-                            seguros,
-                            gestión de inventario y experiencia de compra
-                            optimizada.
+                            class="text-2xl font-bold mb-6 text-gray-900"
+                            data-i18n="services.ecommerce.title"></h3>
+                        <p class="text-gray-600 leading-relaxed mb-6"
+                           data-i18n="services.ecommerce.description">
                         </p>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span>Pagos
-                                seguros</li>
+                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span><span data-i18n="services.ecommerce.feature1"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span>Gestión
-                                de productos</li>
+                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span><span data-i18n="services.ecommerce.feature2"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span>Analytics
-                                integrado</li>
+                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span><span data-i18n="services.ecommerce.feature3"></span></li>
                         </ul>
                     </div>
 
@@ -340,24 +334,18 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold mb-6 text-gray-900">Aplicaciones
-                            Web</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Aplicaciones web personalizadas con tecnologías
-                            modernas
-                            para automatizar procesos y mejorar la
-                            productividad.
+                            class="text-2xl font-bold mb-6 text-gray-900"
+                            data-i18n="services.webApp.title"></h3>
+                        <p class="text-gray-600 leading-relaxed mb-6"
+                           data-i18n="services.webApp.description">
                         </p>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-green rounded-full mr-3"></span>React
-                                & Next.js</li>
+                                    class="w-2 h-2 bg-wave-green rounded-full mr-3"></span><span data-i18n="services.webApp.feature1"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-green rounded-full mr-3"></span>APIs
-                                REST</li>
+                                    class="w-2 h-2 bg-wave-green rounded-full mr-3"></span><span data-i18n="services.webApp.feature2"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-green rounded-full mr-3"></span>Base
-                                de datos</li>
+                                    class="w-2 h-2 bg-wave-green rounded-full mr-3"></span><span data-i18n="services.webApp.feature3"></span></li>
                         </ul>
                     </div>
 
@@ -375,23 +363,18 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold mb-6 text-gray-900">Seguridad
-                            & Hosting</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Servicios de hosting seguro, certificados SSL,
-                            backups automáticos
-                            y monitoreo 24/7 para máxima confiabilidad.
+                            class="text-2xl font-bold mb-6 text-gray-900"
+                            data-i18n="services.security.title"></h3>
+                        <p class="text-gray-600 leading-relaxed mb-6"
+                           data-i18n="services.security.description">
                         </p>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-orange rounded-full mr-3"></span>SSL
-                                gratuito</li>
+                                    class="w-2 h-2 bg-wave-orange rounded-full mr-3"></span><span data-i18n="services.security.feature1"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-orange rounded-full mr-3"></span>Backups
-                                diarios</li>
+                                    class="w-2 h-2 bg-wave-orange rounded-full mr-3"></span><span data-i18n="services.security.feature2"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-orange rounded-full mr-3"></span>Soporte
-                                24/7</li>
+                                    class="w-2 h-2 bg-wave-orange rounded-full mr-3"></span><span data-i18n="services.security.feature3"></span></li>
                         </ul>
                     </div>
 
@@ -409,24 +392,18 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold mb-6 text-gray-900">Consultoría
-                            Digital</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Asesoramiento estratégico para optimizar tu
-                            presencia digital,
-                            mejorar conversiones y maximizar el ROI de tu
-                            inversión.
+                            class="text-2xl font-bold mb-6 text-gray-900"
+                            data-i18n="services.consulting.title"></h3>
+                        <p class="text-gray-600 leading-relaxed mb-6"
+                           data-i18n="services.consulting.description">
                         </p>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span>Auditoría
-                                web</li>
+                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span><span data-i18n="services.consulting.feature1"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span>Estrategia
-                                digital</li>
+                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span><span data-i18n="services.consulting.feature2"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span>Optimización
-                                UX</li>
+                                    class="w-2 h-2 bg-wave-blue rounded-full mr-3"></span><span data-i18n="services.consulting.feature3"></span></li>
                         </ul>
                     </div>
 
@@ -443,45 +420,36 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold mb-6 text-gray-900">Desarrollo
-                            Móvil</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Aplicaciones móviles nativas y PWAs que ofrecen
-                            experiencias
-                            excepcionales en dispositivos iOS y Android.
+                            class="text-2xl font-bold mb-6 text-gray-900"
+                            data-i18n="services.mobile.title"></h3>
+                        <p class="text-gray-600 leading-relaxed mb-6"
+                           data-i18n="services.mobile.description">
                         </p>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span>React
-                                Native</li>
+                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span><span data-i18n="services.mobile.feature1"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span>PWA
-                            </li>
+                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span><span data-i18n="services.mobile.feature2"></span></li>
                             <li class="flex items-center"><span
-                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span>App
-                                Store</li>
+                                    class="w-2 h-2 bg-wave-purple rounded-full mr-3"></span><span data-i18n="services.mobile.feature3"></span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Technologies Section -->
         <section id="tecnologias"
             class="py-24 bg-white relative overflow-hidden">
             <div class="absolute inset-0 tech-grid"></div>
 
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-20 scroll-reveal">
-                    <h2 class="text-5xl lg:text-6xl font-bold mb-8">
-                        <span class="gradient-text">Tecnologías</span> de
-                        Vanguardia
+                    <h2 class="text-5xl lg:text-6xl font-bold mb-8"
+                        data-i18n="technologies.title">
                     </h2>
                     <p
-                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        Utilizamos las herramientas más modernas y eficientes
-                        del mercado
-                        para crear soluciones web robustas y escalables
+                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                        data-i18n="technologies.subtitle">
                     </p>
                 </div>
 
@@ -580,25 +548,21 @@
                                 stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
-                        <span class="text-xl font-bold">Y muchas tecnologías
-                            más...</span>
+                        <span class="text-xl font-bold" data-i18n="technologies.more"></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="proyectos" class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-20 scroll-reveal">
                     <h2 class="text-5xl lg:text-6xl font-bold mb-8">
-                        Nuestros <span class="gradient-text">Proyectos</span>
+                        <span data-i18n="projects.title"></span> <span class="gradient-text" data-i18n="projects.titleHighlight"></span>
                     </h2>
                     <p
-                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        Cada proyecto es una historia de éxito. Descubre cómo
-                        hemos ayudado
-                        a empresas a alcanzar sus objetivos digitales.
+                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                        data-i18n="projects.subtitle">
                     </p>
                 </div>
 
@@ -609,17 +573,12 @@
                             class="h-48 bg-gradient-to-br from-wave-blue to-wave-purple relative overflow-hidden">
                             <div class="absolute inset-0 bg-black/20"></div>
                             <div class="absolute bottom-4 left-4 text-white">
-                                <h4 class="text-xl font-bold">E-commerce
-                                    Moderno</h4>
-                                <p class="text-sm opacity-90">Tienda online
-                                    completa</p>
+                                <h4 class="text-xl font-bold" data-i18n="projects.ecommerce.title"></h4>
+                                <p class="text-sm opacity-90" data-i18n="projects.ecommerce.subtitle"></p>
                             </div>
                         </div>
                         <div class="p-8">
-                            <p class="text-gray-600 mb-6">
-                                Plataforma de e-commerce con diseño moderno,
-                                sistema de pagos
-                                integrado y panel de administración completo.
+                            <p class="text-gray-600 mb-6" data-i18n="projects.ecommerce.description">
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span
@@ -630,8 +589,8 @@
                                     class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Stripe</span>
                             </div>
                             <button
-                                class="text-wave-blue font-semibold hover:text-wave-purple transition-colors">
-                                Ver proyecto →
+                                class="text-wave-blue font-semibold hover:text-wave-purple transition-colors"
+                                data-i18n="projects.viewProject">
                             </button>
                         </div>
                     </div>
@@ -643,17 +602,12 @@
                             class="h-48 bg-gradient-to-br from-wave-purple to-wave-pink relative overflow-hidden">
                             <div class="absolute inset-0 bg-black/20"></div>
                             <div class="absolute bottom-4 left-4 text-white">
-                                <h4 class="text-xl font-bold">Dashboard
-                                    Corporativo</h4>
-                                <p class="text-sm opacity-90">Panel de control
-                                    avanzado</p>
+                                <h4 class="text-xl font-bold" data-i18n="projects.dashboard.title"></h4>
+                                <p class="text-sm opacity-90" data-i18n="projects.dashboard.subtitle"></p>
                             </div>
                         </div>
                         <div class="p-8">
-                            <p class="text-gray-600 mb-6">
-                                Dashboard interactivo para gestión empresarial
-                                con analytics
-                                en tiempo real y reportes automatizados.
+                            <p class="text-gray-600 mb-6" data-i18n="projects.dashboard.description">
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span
@@ -664,8 +618,8 @@
                                     class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
                             </div>
                             <button
-                                class="text-wave-blue font-semibold hover:text-wave-purple transition-colors">
-                                Ver proyecto →
+                                class="text-wave-blue font-semibold hover:text-wave-purple transition-colors"
+                                data-i18n="projects.viewProject">
                             </button>
                         </div>
                     </div>
@@ -677,17 +631,12 @@
                             class="h-48 bg-gradient-to-br from-wave-green to-wave-blue relative overflow-hidden">
                             <div class="absolute inset-0 bg-black/20"></div>
                             <div class="absolute bottom-4 left-4 text-white">
-                                <h4 class="text-xl font-bold">App Móvil
-                                    Innovadora</h4>
-                                <p class="text-sm opacity-90">Aplicación
-                                    multiplataforma</p>
+                                <h4 class="text-xl font-bold" data-i18n="projects.mobileApp.title"></h4>
+                                <p class="text-sm opacity-90" data-i18n="projects.mobileApp.subtitle"></p>
                             </div>
                         </div>
                         <div class="p-8">
-                            <p class="text-gray-600 mb-6">
-                                Aplicación móvil con funcionalidades avanzadas,
-                                sincronización en la nube y experiencia de
-                                usuario excepcional.
+                            <p class="text-gray-600 mb-6" data-i18n="projects.mobileApp.description">
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span
@@ -699,8 +648,8 @@
                                     class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">TypeScript</span>
                             </div>
                             <button
-                                class="text-wave-blue font-semibold hover:text-wave-purple transition-colors">
-                                Ver proyecto →
+                                class="text-wave-blue font-semibold hover:text-wave-purple transition-colors"
+                                data-i18n="projects.viewProject">
                             </button>
                         </div>
                     </div>
@@ -708,19 +657,16 @@
             </div>
         </section>
 
-        <!-- Testimonies Section -->
         <section id="testimonios"
             class="py-24 bg-gray-50 relative overflow-hidden">
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-16 scroll-reveal">
                     <h2 class="text-5xl lg:text-6xl font-bold mb-8">
-                        <span class="gradient-text">Testimonios</span> de
-                        Clientes
+                        <span class="gradient-text" data-i18n="testimonials.title"></span> <span data-i18n="testimonials.titleHighlight"></span>
                     </h2>
                     <p
-                        class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Escucha lo que nuestros clientes opinan de nuestro
-                        trabajo.
+                        class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+                        data-i18n="testimonials.subtitle">
                     </p>
                 </div>
                 <div id="testimonial-carousel"
@@ -729,76 +675,62 @@
             </div>
         </section>
 
-        <!-- News Section -->
         <section id="noticias" class="py-24 bg-white relative overflow-hidden hidden"></section>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-16 scroll-reveal">
                     <h2 class="text-5xl lg:text-6xl font-bold mb-8">
-                        Últimas <span class="gradient-text">Noticias</span> de
-                        Tecnología
+                        <span data-i18n="news.title"></span> <span class="gradient-text" data-i18n="news.titleHighlight"></span>
                     </h2>
                     <p
-                        class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Mantente al día con las últimas novedades del mundo
-                        tecnológico.
+                        class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+                        data-i18n="news.subtitle">
                     </p>
                 </div>
                 <div id="news-container"
                     class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- News items will be dynamically inserted here -->
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contacto"
             class="py-24 bg-white relative overflow-hidden tech-grid">
             <div class="wave-pattern absolute inset-0 opacity-30"></div>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-20 scroll-reveal">
                     <h2 class="text-5xl lg:text-6xl font-bold mb-8">
-                        <span class="gradient-text">Contáctanos</span>
+                        <span class="gradient-text" data-i18n="contact.title"></span>
                     </h2>
                     <p
-                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        ¿Listo para llevar tu proyecto al siguiente nivel? Ponte
-                        en contacto con nosotros y empecemos a
-                        construir tu visión digital.
+                        class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed" data-i18n="contact.subtitle">
                     </p>
                 </div>
 
-<!----------------- MAIL ---------------------->
-
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                   <div class="glass-card p-10 rounded-2xl hover-lift">
-                        <h3 class="text-3xl font-bold mb-6 gradient-text">Envíanos un mensaje</h3>
+                        <h3 class="text-3xl font-bold mb-6 gradient-text" data-i18n="contact.formTitle"></h3>
                         <form id="contact-form" class="space-y-6">
                             <div>
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Nombre</label>
-                                <input type="text" id="name" name="name" class="w-full p-4 rounded-xl border border-gray-300 focus:border-wave-blue focus:ring focus:ring-wave-blue-light focus:ring-opacity-50" placeholder="Tu nombre">
+                                <label for="name" class="block text-gray-700 font-medium mb-2" data-i18n="contact.name"></label>
+                                <input type="text" id="name" name="name" class="w-full p-4 rounded-xl border border-gray-300 focus:border-wave-blue focus:ring focus:ring-wave-blue-light focus:ring-opacity-50" data-i18n-placeholder="contact.placeholders.name">
                             </div>
                             <div>
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" class="w-full p-4 rounded-xl border border-gray-300 focus:border-wave-blue focus:ring focus:ring-wave-blue-light focus:ring-opacity-50" placeholder="tu@correo.com">
+                                <label for="email" class="block text-gray-700 font-medium mb-2" data-i18n="contact.email"></label>
+                                <input type="email" id="email" name="email" class="w-full p-4 rounded-xl border border-gray-300 focus:border-wave-blue focus:ring focus:ring-wave-blue-light focus:ring-opacity-50" data-i18n-placeholder="contact.placeholders.email">
                             </div>
                             <div>
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" class="w-full p-4 rounded-xl border border-gray-300 focus:border-wave-blue focus:ring focus:ring-wave-blue-light focus:ring-opacity-50" placeholder="Cuéntanos sobre tu proyecto"></textarea>
+                                <label for="message" class="block text-gray-700 font-medium mb-2" data-i18n="contact.message"></label>
+                                <textarea id="message" name="message" rows="5" class="w-full p-4 rounded-xl border border-gray-300 focus:border-wave-blue focus:ring focus:ring-wave-blue-light focus:ring-opacity-50" data-i18n-placeholder="contact.placeholders.message"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-wave-blue to-wave-purple text-white px-8 py-4 rounded-xl font-semibold hover-lift shadow-lg">
-                                Enviar Mensaje
+                            <button type="submit" class="w-full bg-gradient-to-r from-wave-blue to-wave-purple text-white px-8 py-4 rounded-xl font-semibold hover-lift shadow-lg" data-i18n="contact.send">
                             </button>
                         </form>
                         <p id="form-message" class="mt-4 text-center text-gray-700"></p>
                     </div>
 
-<!----------------- END MAIL ---------------------->
-
                     <div class="scroll-reveal" style="animation-delay: 0.2s;">
                         <div class="glass-card p-10 rounded-2xl hover-lift">
                             <h3
-                                class="text-3xl font-bold mb-6 gradient-text">Información
-                                de Contacto</h3>
+                                class="text-3xl font-bold mb-6 gradient-text" data-i18n="contact.info.title"></h3>
                             <div class="space-y-4 text-gray-600">
                                 <div class="flex items-center space-x-4">
                                     <svg class="w-6 h-6 text-wave-blue"
@@ -844,7 +776,7 @@
                             </div>
                             <div class="mt-8">
                                 <h4
-                                    class="text-xl font-bold text-gray-900 mb-4">Síguenos</h4>
+                                    class="text-xl font-bold text-gray-900 mb-4" data-i18n="footer.followUs"></h4>
                                 <div class="flex space-x-4">
                                     <a
                                         href="https://www.instagram.com/wavdevelop/"
@@ -886,12 +818,10 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="bg-gray-900 text-gray-100 py-12">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-10">
                     <div>
-                        <!-- Logo and Description -->
                         <div class="flex items-center space-x-3">
                             <div class="relative">
                                 <div
@@ -903,40 +833,35 @@
                             <span
                                 class="text-3xl font-bold gradient-text">WavDevelop</span>
                         </div>
-                        <p class="text-gray-400 leading-relaxed">
-                            Transformamos ideas en soluciones digitales
-                            innovadoras, utilizando tecnología de vanguardia
-                            para impulsar tu negocio.
+                        <p class="text-gray-400 leading-relaxed" data-i18n="footer.description">
                         </p>
                     </div>
 
                     <div>
-                        <h4 class="text-xl font-bold mb-6">Enlaces Rápidos</h4>
+                        <h4 class="text-xl font-bold mb-6" data-i18n="footer.quickLinks"></h4>
                         <ul class="space-y-2 text-gray-400">
                             <li><a href="#inicio"
-                                    class="hover:text-wave-blue transition-colors">Inicio</a></li>
+                                    class="hover:text-wave-blue transition-colors" data-i18n="nav.home"></a></li>
                             <li><a href="#servicios"
-                                    class="hover:text-wave-blue transition-colors">Servicios</a></li>
+                                    class="hover:text-wave-blue transition-colors" data-i18n="nav.services"></a></li>
                             <li><a href="#tecnologias"
-                                    class="hover:text-wave-blue transition-colors">Tecnologías</a></li>
+                                    class="hover:text-wave-blue transition-colors" data-i18n="nav.technologies"></a></li>
                             <li><a href="#proyectos"
-                                    class="hover:text-wave-blue transition-colors">Proyectos</a></li>
+                                    class="hover:text-wave-blue transition-colors" data-i18n="nav.projects"></a></li>
                             <li><a href="#contacto"
-                                    class="hover:text-wave-blue transition-colors">Contacto</a></li>
+                                    class="hover:text-wave-blue transition-colors" data-i18n="nav.contact"></a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 class="text-xl font-bold mb-6">Suscríbete</h4>
-                        <p class="text-gray-400 mb-4">Recibe las últimas
-                            novedades y actualizaciones de WavDevelop.</p>
+                        <h4 class="text-xl font-bold mb-6" data-i18n="footer.subscribe"></h4>
+                        <p class="text-gray-400 mb-4" data-i18n="footer.subscribeText"></p>
                         <form class="flex">
                             <input type="email"
-                                placeholder="Tu correo electrónico"
+                                data-i18n-placeholder="footer.emailPlaceholder"
                                 class="w-full p-3 rounded-l-xl bg-gray-800 text-gray-200 border-none focus:ring focus:ring-wave-blue-light">
                             <button type="submit"
-                                class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-3 rounded-r-xl font-semibold hover-lift">
-                                Suscribirse
+                                class="bg-gradient-to-r from-wave-blue to-wave-purple text-white px-6 py-3 rounded-r-xl font-semibold hover-lift" data-i18n="footer.subscribeButton">
                             </button>
                         </form>
                     </div>
@@ -944,14 +869,12 @@
 
                 <div
                     class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-                    <p>&copy; 2025 WavDevelop. Todos los derechos
-                        reservados.</p>
+                    <p>&copy; 2025 WavDevelop. <span data-i18n="footer.rights"></span></p>
                 </div>
             </div>
         </footer>
         <script src="src/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-         <!-- Contact Form Script -->
         <script>
          document.addEventListener('DOMContentLoaded', initContactForm);
         </script>

@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Início",
+    "services": "Serviços", 
+    "technologies": "Tecnologias",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "quote": "Solicitar Orçamento"
+  },
+  "hero": {
+    "title": "Desenvolvimento Web",
+    "subtitle": "Inovador",
+    "description": "Na **WavDevelop** criamos experiências digitais extraordinárias com as tecnologias mais avançadas. Transformamos ideias em soluções web profissionais que impulsionam seu negócio para o futuro.",
+    "startProject": "Iniciar Projeto",
+    "viewPortfolio": "Ver Portfólio",
+    "stats": {
+      "projects": "Projetos",
+      "satisfaction": "Satisfação", 
+      "support": "Suporte"
+    }
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Mensagem",
+    "send": "Enviar Mensagem",
+    "success": "Mensagem enviada com sucesso",
+    "error": "Erro ao enviar mensagem"
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "webDev": "Desenvolvimento Web",
+    "mobileApp": "Aplicações Móveis",
+    "ecommerce": "E-commerce",
+    "consulting": "Consultoria"
+  }
+} 
