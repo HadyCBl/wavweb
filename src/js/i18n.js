@@ -721,11 +721,14 @@ function getTranslation(key, lang = currentLanguage) {
 }
 
 function updateContent(language = currentLanguage) {
+    console.log('🔄 Updating content to:', language);
     const elements = document.querySelectorAll('[data-i18n]');
+    console.log('📍 Found elements with data-i18n:', elements.length);
     
-    elements.forEach(element => {
+    elements.forEach((element, index) => {
         const key = element.getAttribute('data-i18n');
         const translation = getTranslation(key, language);
+        console.log(`Element ${index}: ${key} = ${translation}`);
         
         if (translation) {
             if (element.tagName === 'INPUT' && element.type === 'submit') {
@@ -741,6 +744,7 @@ function updateContent(language = currentLanguage) {
     });
 
     const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+    console.log('📍 Found placeholder elements:', placeholderElements.length);
     placeholderElements.forEach(element => {
         const key = element.getAttribute('data-i18n-placeholder');
         const translation = getTranslation(key, language);
@@ -751,8 +755,14 @@ function updateContent(language = currentLanguage) {
     });
 
     const selector = document.getElementById('language-selector');
+    const mobileSelector = document.getElementById('language-selector-mobile');
     if (selector) {
         selector.value = language;
+        console.log('✅ Desktop selector updated');
+    }
+    if (mobileSelector) {
+        mobileSelector.value = language;
+        console.log('✅ Mobile selector updated');
     }
 
     if (window.updateTestimonials) {
@@ -764,6 +774,7 @@ function updateContent(language = currentLanguage) {
     }
 
     updateMetaTags(language);
+    console.log('✅ Content update complete');
 }
 
 function updateMetaTags(language) {
@@ -811,27 +822,71 @@ function showNotification(language) {
     }, 3000);
 }
 
-function setupLanguageSelector() {
-    const selector = document.getElementById('language-selector');
-    
+// Initialize language selector
+const selector = document.getElementById('language-selector');
+const mobileSelector = document.getElementById('language-selector-mobile');
+
+function updateLanguageSelectors(lang) {
+    if (selector) selector.value = lang;
+    if (mobileSelector) mobileSelector.value = lang;
+}
+
+function initializeLanguageSelectors() {
     if (selector) {
         selector.addEventListener('change', (e) => {
-            changeLanguage(e.target.value);
+            const lang = e.target.value;
+            changeLanguage(lang);
+            updateLanguageSelectors(lang);
+        });
+    }
+    
+    if (mobileSelector) {
+        mobileSelector.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            changeLanguage(lang);
+            updateLanguageSelectors(lang);
         });
     }
 }
 
 function initI18n() {
+    console.log('🚀 Initializing i18n system...');
     const savedLanguage = localStorage.getItem('selectedLanguage');
     const detectedLanguage = detectBrowserLanguage();
     
     currentLanguage = savedLanguage || detectedLanguage;
+    console.log('🌐 Current language:', currentLanguage);
     
     updateContent(currentLanguage);
-    setupLanguageSelector();
+    initializeLanguageSelectors();
+    updateLanguageSelectors(currentLanguage);
+    console.log('✅ i18n system initialized');
+}
+
+function testTranslation() {
+    console.log('🧪 Testing translation system...');
+    console.log('Available languages:', Object.keys(TRANSLATIONS));
+    console.log('Current language:', currentLanguage);
+    console.log('Test translation (nav.home):', getTranslation('nav.home', 'en'));
+    updateContent('en');
+}
+
+// Initialize the translation system when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('📄 DOM loaded, initializing...');
+    initI18n();
+});
+
+// Also try immediate initialization if DOM is already loaded
+if (document.readyState === 'loading') {
+    console.log('📄 DOM is loading...');
+} else {
+    console.log('📄 DOM already loaded, initializing immediately...');
+    initI18n();
 }
 
 window.initI18n = initI18n;
 window.changeLanguage = changeLanguage;
 window.updateContent = updateContent;
 window.getTranslation = getTranslation;
+window.testTranslation = testTranslation;
