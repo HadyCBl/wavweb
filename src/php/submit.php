@@ -52,7 +52,6 @@ try {
     $mail->Port = 465;
 
     $mail->setFrom('notifications@wavdevelop.com', 'Formulario de Contacto');
-    $mail->addAddress('harvey@wavdevelop.com'); 
     $mail->addAddress('ventas@wavdevelop.com'); // Add more 
 
     $mail->isHTML(true);
