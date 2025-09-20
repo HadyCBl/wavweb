@@ -3,6 +3,53 @@
    ============================ */
 
 /* Gradient Text */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem; /* Añadimos padding al track */
+}
+
+.carousel-track.ready {
+    animation: infiniteScroll 25s linear infinite;
+}
+
+.carousel-card {
+    flex: 0 0 auto;
+    width: 350px; /* Aumentamos de 300px a 400px */
+    margin-right: 1rem; /* Añadimos margen entre cartas */
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+@keyframes infiniteScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-card {
+        width: 300px;
+    }
+    .carousel-track {
+        gap: 1rem;
+    }
+}
 .gradient-text {
     background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
     -webkit-background-clip: text;

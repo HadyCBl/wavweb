@@ -23,7 +23,10 @@ tailwind.config = {
                 'slide-in-right': 'slideInRight 1s ease-out',
                 'slide-in-up': 'slideInUp 1s ease-out',
                 'fade-in-scale': 'fadeInScale 1s ease-out',
-                'bounce-gentle': 'bounceGentle 2s ease-in-out infinite'
+                'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                'infiniteScroll': 'infiniteScroll 30s linear infinite',
+                'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                'hover-lift': 'hover-lift 0.3s ease'
             },
             keyframes: {
                 floatSlow: {
@@ -61,7 +64,19 @@ tailwind.config = {
                 bounceGentle: {
                     '0%, 100%': { transform: 'translateY(0)' },
                     '50%': { transform: 'translateY(-10px)' }
-                }
+                },
+                infiniteScroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        'pulse-glow': {
+                            '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            '100%': { boxShadow: '0 0 30px rgba(139, 92, 246, 0.8)' }
+                        },
+                        'hover-lift': {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-5px)' }
+                        }
             }
         }
     }
